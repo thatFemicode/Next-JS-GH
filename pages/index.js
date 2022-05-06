@@ -6,14 +6,14 @@ import { useState, useEffect } from "react";
 import Search from "@/layout/Search/Search";
 import { searchRepos } from "services/githubService";
 
-export default function Home(props) {
+export default function Home() {
   // console.log(value);
   const [searchText, setSearchText] = useState("");
   const [language, setLanguage] = useState("");
   const [repos, setRepos] = useState([]);
   const [loading, setLoading] = useState(false);
   // const apiKey = process.env.REACT_APP_API_KEY;
-  console.log(process.env.NEXT_PUBLIC_GITHUB_CLIENT_ID);
+  // console.log(process.env.NEXT_PUBLIC_GITHUB_CLIENT_ID);
   const onSearchTextChange = (text) => {
     setSearchText(text);
     loadRepos(text, language);
