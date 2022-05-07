@@ -5,6 +5,7 @@ import axios from "axios";
 import { useState, useEffect } from "react";
 import Search from "@/layout/Search/Search";
 import { searchRepos } from "services/githubService";
+import RepoList from "@/layout/RepoList/RepoList";
 
 export default function Home() {
   // console.log(value);
@@ -27,8 +28,10 @@ export default function Home() {
   const loadRepos = async (searchText, language) => {
     setLoading(true);
     const res = await searchRepos(searchText, language);
-    setLoading(false);
-    setRepos(res.data.items);
+    if (res && res.data) {
+      setLoading(false);
+      setRepos(res.data.items);
+    }
   };
   return (
     // <div className={styles.container}>
@@ -47,7 +50,7 @@ export default function Home() {
         onSearchTextChange={onSearchTextChange}
         onLanguageChange={onLanguageChange}
       />
-      {loading ? "Loading..." : <div>{JSON.stringify(repos, null, 2)}</div>}
+      <RepoList loading={loading} repos={repos} />
     </div>
   );
 }
