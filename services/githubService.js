@@ -18,6 +18,12 @@ function searchRepos(searchText, language) {
   //   axiosConfig
   //   // `/search/repositories?q=tetris+language:assembly&sort=stars&order=desc`
   // );
+  if (isServer()) {
+    return axios.get(
+      `search/repositories?q=${query}&sort=stars&order=desc`,
+      axiosConfig
+    );
+  }
   return axiosGetCancellable(`api/search/?q=${query}&sort=stars&order=desc`);
 }
 function isServer() {

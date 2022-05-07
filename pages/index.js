@@ -6,24 +6,18 @@ import { useState, useEffect } from "react";
 import Search from "@/layout/Search/Search";
 import { searchRepos } from "services/githubService";
 import RepoList from "@/layout/RepoList/RepoList";
+import { getRandomWord } from "helpers/randomWorld";
 
-export default function Home() {
+export default function Home(props) {
   // console.log(value);
-  const [searchText, setSearchText] = useState("");
+  // const [searchText, setSearchText] = useState("");
   const [language, setLanguage] = useState("");
-  const [repos, setRepos] = useState([]);
+  const [searchText, setSearchText] = useState(props.searchText);
+  const [repos, setRepos] = useState(props.repos);
+  // const [repos, setRepos] = useState([]);
   const [loading, setLoading] = useState(false);
   // const apiKey = process.env.REACT_APP_API_KEY;
   // console.log(process.env.NEXT_PUBLIC_GITHUB_CLIENT_ID);
-  const onSearchTextChange = (text) => {
-    setSearchText(text);
-    loadRepos(text, language);
-  };
-
-  const onLanguageChange = (language) => {
-    setLanguage(language);
-    loadRepos(searchText, language);
-  };
 
   const loadRepos = async (searchText, language) => {
     setLoading(true);
@@ -33,6 +27,21 @@ export default function Home() {
       setRepos(res.data.items);
     }
   };
+  // useEffect(() => {
+  //   loadRepos(props.searchText, language);
+  // }, []);
+  const onSearchTextChange = (text) => {
+    setSearchText(text);
+    if (text) {
+      loadRepos(text, language);
+    }
+  };
+
+  const onLanguageChange = (language) => {
+    setLanguage(language);
+    loadRepos(searchText, language);
+  };
+
   return (
     // <div className={styles.container}>
     //   <Head>
@@ -64,12 +73,15 @@ export default function Home() {
 //     },
 //   };
 // }
-export const getStaticProps = async () => {
-  const res = await axios.get("https://api.chucknorris.io/jokes/random");
-  console.log(res.data.value);
+export const getServerSideProps = async () => {
+  // const res = await axios.get("https://api.chucknorris.io/jokes/random");
+  const searchText = getRandomWord();
+  const res = await searchRepos(searchText);
+  // console.log(res.data.value);
   return {
     props: {
-      value: res.data.value,
+      searchText: searchText,
+      repos: res.data.items,
     },
   };
 };
