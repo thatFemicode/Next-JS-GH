@@ -1,6 +1,7 @@
 import React from "react";
 
-const Select = ({ label, value, onChange, options }) => {
+const Select = ({ label, value, onChange, options, className }) => {
+  const selectClass = className ? `${className} field` : "field";
   return (
     <div>
       {label}
