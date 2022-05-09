@@ -1,7 +1,7 @@
 import Link from "next/link";
 import React from "react";
 import styles from "./repoitem.module.scss";
-
+import Avatar from "@/layout/Avatar/Avatar";
 const RepoItem = ({ repo }) => {
   const cutDescription = (description) => {
     if (description.length > 100) {
@@ -18,7 +18,7 @@ const RepoItem = ({ repo }) => {
           <a>{repo.name}</a>
         </Link>
       </div>
-
+      <Avatar user={repo.owner} />
       <p className={styles.className}>{cutDescription(repo.description)}</p>
 
       <div className={styles.footer}>
