@@ -2,7 +2,7 @@ import React from "react";
 import Avatar from "@/layout/Avatar/Avatar";
 import Button from "@/layout/Button/Button";
 import { getRepo } from "services/githubService";
-
+import styles from "./repo.module.scss";
 const Repo = ({ repo }) => {
   return (
     <div>
