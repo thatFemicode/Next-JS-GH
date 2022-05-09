@@ -1,6 +1,7 @@
 import Link from "next/link";
 import React from "react";
 import styles from "./repoitem.module.scss";
+
 const RepoItem = ({ repo }) => {
   const cutDescription = (description) => {
     if (description.length > 100) {
