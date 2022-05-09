@@ -37,4 +37,4 @@ function getProfile(username) {
 function isServer() {
   return typeof window === "undefined";
 }
-export { searchRepos };
+export { searchRepos, getRepo, getProfile };
