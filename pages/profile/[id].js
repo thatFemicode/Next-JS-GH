@@ -1,6 +1,6 @@
 import React from "react";
-import { getProfile } from "services/githubService";
-import Button from "@/layout/Button/Button";
+import { getProfile } from "services/githubservice";
+import Button from "@/layout/button/button";
 import styles from "./profile.module.scss";
 const Profile = ({ profile }) => {
   return (

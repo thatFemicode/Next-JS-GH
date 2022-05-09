@@ -1,6 +1,6 @@
 import Link from "next/link";
 import React from "react";
-import styles from "./Avatar.module.scss";
+import styles from "./avatar.module.scss";
 
 const Avatar = ({ user }) => {
   return (

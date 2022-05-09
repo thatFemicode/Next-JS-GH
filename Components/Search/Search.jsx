@@ -1,7 +1,7 @@
 import React from "react";
-import Select from "Components/Select/Select";
-import TextInput from "Components/TextInput/TextInput";
-import Languages from "Constant/language";
+import Select from "@/layout/select/select";
+import TextInput from "@/layout/text-input/text-input";
+import Languages from "constant/language";
 import styles from "./search.module.scss";
 
 const Search = (props) => {

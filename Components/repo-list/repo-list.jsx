@@ -1,5 +1,5 @@
 import React from "react";
-import RepoItem from "@/layout/RepoItem/RepoItem";
+import RepoItem from "@/layout/repo-item/repo-item";
 import img from "../../img/loader.gif";
 import styles from "./repo.module.scss";
 import Image from "next/image";

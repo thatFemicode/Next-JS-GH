@@ -1,8 +1,8 @@
 import axios from "axios";
-import { axiosGetCancellable } from "helpers/axiosHelpers";
+import { axiosGetCancellable } from "helpers/axios-helpers";
 
 const axiosConfig = {
-  baseURL: "https://api.github.com",
+  baseURL: "https://api.github.com/",
   auth: {
     username: process.env.GITHUB_CLIENT_ID,
     password: process.env.GITHUB_CLIENT_SECRET,

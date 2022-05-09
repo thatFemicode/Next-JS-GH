@@ -1,10 +1,10 @@
 import Link from "next/link";
 import React from "react";
 import styles from "./repoitem.module.scss";
-import Avatar from "@/layout/Avatar/Avatar";
+import Avatar from "@/layout/avatar/avatar";
 const RepoItem = ({ repo }) => {
   const cutDescription = (description) => {
-    if (description.length > 100) {
+    if (description && description.length > 100) {
       return description.slice(0, 100) + "...";
     }
 

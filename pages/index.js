@@ -3,10 +3,10 @@ import Image from "next/image";
 import styles from "../styles/Home.module.css";
 import axios from "axios";
 import { useState, useEffect } from "react";
-import Search from "@/layout/Search/Search";
-import { searchRepos } from "services/githubService";
-import RepoList from "@/layout/RepoList/RepoList";
-import { getRandomWord } from "helpers/randomWorld";
+import Search from "@/layout/search/search";
+import { searchRepos } from "services/githubservice";
+import RepoList from "@/layout/repo-list/repo-list";
+import { getRandomWord } from "helpers/random-word";
 
 export default function Home(props) {
   // console.log(value);
